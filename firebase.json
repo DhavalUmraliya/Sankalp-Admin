@@ -1,0 +1,17 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "sankalp-e31ba",
+          "configurations": {
+            "web": "1:579098535493:web:e45bf39ff622ebe9a3252c"
+          }
+        }
+      }
+    }
+  }
+}
