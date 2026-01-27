@@ -115,7 +115,7 @@ class _NotificationSenderPageState extends State<NotificationSenderPage> {
                     ),
                     const SizedBox(width: 16),
                     DropdownButtonFormField<String>(
-                      value: _target,
+                      initialValue: _target,
                       decoration: const InputDecoration(
                         labelText: 'Target',
                         border: OutlineInputBorder(),

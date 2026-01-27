@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../dashboard/dashboard_page.dart';
 import '../notifications/notification_sender_page.dart';
+import '../users/users_page.dart';
 
 class AdminShellPage extends StatefulWidget {
   const AdminShellPage({super.key});
@@ -43,7 +44,7 @@ class _AdminShellPageState extends State<AdminShellPage> {
 
     final pages = <Widget>[
       const DashboardPage(),
-      const _UsersPage(),
+      const UsersPage(),
       const NotificationSenderPage(),
       const _SettingsPage(),
     ];
@@ -246,16 +247,16 @@ class _BrandHeader extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 Text(
                   'Control center',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: cs.onSurfaceVariant,
-                      ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall?.copyWith(color: cs.onSurfaceVariant),
                 ),
               ],
             ),
@@ -313,9 +314,9 @@ class _AccountHeader extends StatelessWidget {
                 email,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -346,28 +347,7 @@ class _ContentCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: child,
-      ),
-    );
-  }
-}
-
-class _UsersPage extends StatelessWidget {
-  const _UsersPage();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Users', style: Theme.of(context).textTheme.titleLarge),
-        const SizedBox(height: 12),
-        const Expanded(
-          child: Center(child: Text('Users page placeholder')),
-        ),
-      ],
+      child: Padding(padding: const EdgeInsets.all(16), child: child),
     );
   }
 }
@@ -382,11 +362,8 @@ class _SettingsPage extends StatelessWidget {
       children: [
         Text('Settings', style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 12),
-        const Expanded(
-          child: Center(child: Text('Settings page placeholder')),
-        ),
+        const Expanded(child: Center(child: Text('Settings page placeholder'))),
       ],
     );
   }
 }
-
