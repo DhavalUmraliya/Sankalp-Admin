@@ -27,8 +27,18 @@ class AppUser {
       displayName: data['name'] ?? data['displayName'],
       role: data['role'],
       photoUrl: data['photoUrl'] ?? data['profileImage'],
-      createdAt: (data['createdAt'] as Timestamp?)?.toDate(),
+      createdAt:
+          _parseDateTime(data['createdAt']) ??
+          _parseDateTime(data['created_at']),
       metadata: data,
     );
+  }
+
+  static DateTime? _parseDateTime(dynamic value) {
+    if (value == null) return null;
+    if (value is Timestamp) return value.toDate();
+    if (value is String) return DateTime.tryParse(value);
+    if (value is int) return DateTime.fromMillisecondsSinceEpoch(value);
+    return null;
   }
 }
